@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Mi ruta comunicativa | Evidencias de aprendizaje</title>
+<meta name="description" content="Blog integrado de evidencias de aprendizaje del curso Habilidades Comunicativas – Claudia Milena Sterling Molano, Fundación Universitaria Católica del Norte.">
+<link rel="icon" href="img/foto-perfil.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700;800&family=Open+Sans:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --navy:#00174c; --navy-2:#0a2463; --navy-3:#13306f;
+    --blue:#317ba9; --blue-soft:#e5eef4;
+    --lavender:#b4b6d6; --lavender-soft:#eceef8;
+    --gold:#c8a25a; --gold-soft:#f6efe0;
+    --ink:#2c3e50; --muted:#5f6b7a; --line:#dfe3ec;
+    --bg:#f5f6fa; --card:#ffffff;
+    --radius:14px; --shadow:0 6px 24px rgba(0,23,76,.08);
+    --side:270px;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0;background:var(--bg);color:var(--ink);font-family:"Open Sans",system-ui,sans-serif;font-size:17px;line-height:1.7}
+  h1,h2,h3,h4{font-family:Montserrat,system-ui,sans-serif;color:var(--navy);line-height:1.25;margin:0 0 .6em}
+  a{color:var(--blue)}
+  img{max-width:100%;display:block}
+
+  /* ---------- Barra lateral ---------- */
+  .sidebar{position:fixed;inset:0 auto 0 0;width:var(--side);background:var(--navy);color:#fff;display:flex;flex-direction:column;z-index:50;overflow-y:auto}
+  .brand{padding:26px 22px 18px;border-bottom:1px solid rgba(255,255,255,.12)}
+  .brand .inst{font-family:Montserrat;font-weight:700;font-size:15px;letter-spacing:.3px;display:flex;align-items:center;gap:10px}
+  .brand .inst svg{flex:none}
+  .brand .fac{font-size:12px;opacity:.75;margin-top:4px}
+  .me{display:flex;align-items:center;gap:12px;padding:18px 22px;border-bottom:1px solid rgba(255,255,255,.12)}
+  .me img{width:52px;height:52px;border-radius:50%;border:2px solid var(--gold)}
+  .me b{font-family:Montserrat;font-size:14px;display:block;line-height:1.3}
+  .me span{font-size:12px;opacity:.75}
+  nav{padding:12px 12px 24px;flex:1}
+  .nav-group{font-family:Montserrat;font-size:11px;font-weight:700;letter-spacing:1.4px;text-transform:uppercase;color:var(--gold);padding:16px 12px 6px}
+  nav a{display:flex;align-items:center;gap:10px;color:#dfe3f3;text-decoration:none;padding:9px 12px;border-radius:9px;font-size:15px;transition:background .15s,color .15s}
+  nav a .tag{flex:none;width:26px;height:26px;border-radius:7px;background:rgba(255,255,255,.08);display:grid;place-items:center;font-family:Montserrat;font-weight:700;font-size:12px}
+  nav a:hover{background:rgba(255,255,255,.07);color:#fff}
+  nav a.active{background:#fff;color:var(--navy);font-weight:600}
+  nav a.active .tag{background:var(--gold);color:var(--navy)}
+  .side-foot{padding:16px 22px;font-size:12px;opacity:.6;border-top:1px solid rgba(255,255,255,.12)}
+
+  /* ---------- Barra móvil ---------- */
+  .topbar{display:none;position:sticky;top:0;z-index:60;background:var(--navy);color:#fff;align-items:center;justify-content:space-between;padding:10px 16px}
+  .topbar b{font-family:Montserrat;font-size:15px}
+  .menu-btn{background:none;border:1px solid rgba(255,255,255,.3);color:#fff;border-radius:8px;padding:6px 12px;font:600 14px Montserrat;cursor:pointer}
+  .scrim{display:none}
+
+  /* ---------- Contenido ---------- */
+  main{margin-left:var(--side);min-height:100vh}
+  .wrap{max-width:960px;margin:0 auto;padding:40px 40px 64px}
+  .js section.page{display:none}
+  .js section.page.show{display:block;animation:fade .35s ease}
+  @keyframes fade{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+
+  .hero{position:relative;overflow:hidden;background:var(--navy);color:#fff;border-radius:var(--radius);padding:48px 44px 54px;margin-bottom:32px}
+  .hero svg.arc{position:absolute;right:-60px;bottom:-40px;width:520px;opacity:.9;pointer-events:none}
+  .hero .kicker{font-family:Montserrat;font-weight:600;font-size:13px;letter-spacing:1.6px;text-transform:uppercase;color:var(--gold)}
+  .hero h1{color:#fff;font-size:clamp(28px,4.4vw,44px);margin:.35em 0 .4em;font-weight:800}
+  .hero p{max-width:620px;color:#d6dbf0;margin:0}
+  .page-head{border-left:5px solid var(--gold);padding:4px 0 4px 18px;margin-bottom:26px}
+  .page-head .kicker{font-family:Montserrat;font-size:12px;font-weight:700;letter-spacing:1.4px;text-transform:uppercase;color:var(--blue)}
+  .page-head h1{font-size:clamp(26px,3.4vw,36px);margin:.2em 0 0}
+
+  .card{background:var(--card);border-radius:var(--radius);box-shadow:var(--shadow);padding:28px 30px;margin-bottom:24px}
+  .card h2{font-size:22px}
+  .card h3{font-size:18px;color:var(--blue)}
+  .info{background:var(--lavender-soft);border:1px solid var(--lavender);border-radius:12px;padding:16px 20px;font-size:15.5px}
+  .info b{color:var(--navy)}
+  .meta{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 18px}
+  .chip{background:var(--blue-soft);color:var(--navy);font-size:13px;font-weight:600;padding:4px 12px;border-radius:999px}
+  .chip.gold{background:var(--gold-soft);color:#7a5a18}
+
+  .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:18px}
+  .tile{display:block;text-decoration:none;color:var(--ink);background:var(--card);border-radius:var(--radius);box-shadow:var(--shadow);padding:22px;border-top:4px solid var(--blue);transition:transform .15s,box-shadow .15s}
+  .tile:hover{transform:translateY(-3px);box-shadow:0 10px 30px rgba(0,23,76,.14)}
+  .tile .l{font-family:Montserrat;font-weight:800;font-size:28px;color:var(--gold);line-height:1}
+  .tile h3{font-size:16.5px;margin:.6em 0 .3em;color:var(--navy)}
+  .tile p{font-size:14.5px;color:var(--muted);margin:0}
+
+  .video{position:relative;aspect-ratio:16/9;border-radius:12px;overflow:hidden;background:#000;box-shadow:var(--shadow)}
+  .video iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+  .video.vertical{aspect-ratio:9/16;max-width:340px;margin:0 auto}
+  .media-2{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+  .media-2 h4{font-size:15px;color:var(--blue);margin:0 0 10px}
+
+  .pdf{width:100%;height:720px;border:1px solid var(--line);border-radius:12px;background:#fff}
+  .btns{display:flex;flex-wrap:wrap;gap:10px;margin:14px 0 0}
+  .btn{display:inline-flex;align-items:center;gap:8px;font:600 14.5px Montserrat;text-decoration:none;padding:10px 18px;border-radius:10px;background:var(--navy);color:#fff;transition:background .15s}
+  .btn:hover{background:var(--navy-3)}
+  .btn.ghost{background:transparent;color:var(--navy);border:1.5px solid var(--navy)}
+  .btn.ghost:hover{background:var(--lavender-soft)}
+
+  .pending{border:2px dashed var(--lavender);border-radius:12px;padding:36px 24px;text-align:center;color:var(--muted);background:var(--lavender-soft)}
+  .pending b{color:var(--navy);font-family:Montserrat;display:block;margin-bottom:6px}
+
+  .profile{display:grid;grid-template-columns:220px 1fr;gap:34px;align-items:center}
+  .profile img{width:220px;height:220px;border-radius:50%;border:5px solid #fff;box-shadow:0 0 0 3px var(--gold),var(--shadow)}
+  .profile h2{font-size:28px;margin-bottom:.2em}
+  .profile .role{color:var(--muted);margin:0}
+  blockquote{margin:26px 0 6px;padding:18px 24px;border-left:5px solid var(--gold);background:var(--gold-soft);border-radius:0 12px 12px 0;font-style:italic;font-size:18px;color:var(--navy)}
+
+  .essay p{text-align:justify;text-indent:2.2em;margin:0 0 1em}
+  .essay h2{text-align:center;font-size:22px;margin-bottom:1.2em}
+  .refs{border-top:1px solid var(--line);margin-top:1.6em;padding-top:1.2em}
+  .refs h3{text-align:center;font-size:17px;color:var(--navy)}
+  .refs p{padding-left:2.2em;text-indent:-2.2em;text-align:left;font-size:15.5px}
+
+  .pager{display:flex;justify-content:space-between;gap:12px;margin-top:30px;flex-wrap:wrap}
+  .pager a{flex:1 1 220px;text-decoration:none;background:var(--card);border-radius:12px;box-shadow:var(--shadow);padding:14px 18px;color:var(--navy);font-family:Montserrat;font-weight:600;font-size:14.5px}
+  .pager a small{display:block;font-family:"Open Sans";font-weight:400;color:var(--muted);font-size:12.5px}
+  .pager a.next{text-align:right}
+  .pager a:hover{outline:2px solid var(--lavender)}
+
+  footer{text-align:center;font-size:13px;color:var(--muted);padding:26px 20px 40px;border-top:1px solid var(--line);margin:0 40px}
+
+  /* ---------- Responsive ---------- */
+  @media (max-width:900px){
+    .sidebar{transform:translateX(-100%);transition:transform .25s;z-index:70}
+    body.open .sidebar{transform:none}
+    body.open .scrim{display:block;position:fixed;inset:0;background:rgba(0,10,40,.45);z-index:65}
+    .topbar{display:flex}
+    main{margin-left:0}
+    .wrap{padding:24px 16px 48px}
+    .hero{padding:32px 22px 40px}
+    .hero svg.arc{width:360px;right:-90px}
+    .card{padding:22px 18px}
+    .media-2{grid-template-columns:1fr}
+    .profile{grid-template-columns:1fr;text-align:center;justify-items:center}
+    .profile img{width:170px;height:170px}
+    .pdf{height:520px}
+    .essay p{text-align:left}
+    footer{margin:0 16px}
+  }
+</style>
+</head>
+<body>
+
+<!-- Barra superior (solo móvil) -->
+<div class="topbar">
+  <b>Mi ruta comunicativa</b>
+  <button class="menu-btn" aria-label="Abrir menú" onclick="document.body.classList.toggle('open')">☰ Menú</button>
+</div>
+<div class="scrim" onclick="document.body.classList.remove('open')"></div>
+
+<!-- Barra lateral -->
+<aside class="sidebar">
+  <div class="brand">
+    <div class="inst">
+      <svg width="26" height="26" viewBox="0 0 26 26" aria-hidden="true"><path d="M13 1 L15.2 10.8 L25 13 L15.2 15.2 L13 25 L10.8 15.2 L1 13 L10.8 10.8 Z" fill="#c8a25a"/><circle cx="13" cy="13" r="2.4" fill="#00174c"/></svg>
+      Católica del Norte
+    </div>
+    <div class="fac">Facultad de Educación y Ciencias Sociales<br>Curso: Habilidades Comunicativas<br>Docente: Mary Luz Rojas Jaramillo</div>
+  </div>
+  <div class="me">
+    <img src="img/foto-perfil.png" alt="Foto de Claudia Milena Sterling Molano">
+    <div><b>Claudia Milena Sterling Molano</b><span>Estudiante</span></div>
+  </div>
+  <nav aria-label="Menú principal">
+    <div class="nav-group">General</div>
+    <a href="#inicio"><span class="tag">⌂</span>Inicio</a>
+    <a href="#sobre-mi"><span class="tag">☺</span>Sobre mí</a>
+    <div class="nav-group">Evidencias</div>
+    <a href="#evidencia-a"><span class="tag">A</span>Informe de literacidad crítica</a>
+    <a href="#evidencia-b"><span class="tag">B</span>Guion del pódcast</a>
+    <a href="#evidencia-c"><span class="tag">C</span>Pódcast Esencia Ética</a>
+    <a href="#evidencia-d"><span class="tag">D</span>Póster científico</a>
+    <a href="#complementarias"><span class="tag">+</span>Evidencias complementarias</a>
+    <div class="nav-group">Producción final</div>
+    <a href="#texto-argumentativo"><span class="tag">✎</span>Texto argumentativo</a>
+    <a href="#video-tutorial"><span class="tag">▶</span>Video tutorial</a>
+    <a href="#reflexion"><span class="tag">✦</span>Reflexión de la experiencia</a>
+  </nav>
+  <div class="side-foot">Proyecto académico estudiantil · 2026</div>
+</aside>
+
+<main>
+<div class="wrap">
+
+<!-- ================= INICIO ================= -->
+<section class="page" data-page="inicio">
+  <div class="hero">
+    <svg class="arc" viewBox="0 0 520 260" aria-hidden="true">
+      <path d="M10 250 C 140 60, 380 40, 510 250" fill="none" stroke="#c8a25a" stroke-width="2"/>
+      <path d="M90 250 C 190 120, 330 110, 430 250" fill="none" stroke="#c8a25a" stroke-width="1.2" opacity=".6"/>
+      <path d="M330 180 L336 205 L361 211 L336 217 L330 242 L324 217 L299 211 L324 205 Z" fill="#c8a25a" opacity=".85"/>
+    </svg>
+    <div class="kicker">Blog integrado de evidencias de aprendizaje</div>
+    <h1>Mi ruta comunicativa</h1>
+    <p>Un recorrido por los productos que construí en el curso de Habilidades Comunicativas: leer con sentido crítico, escribir con rigor, hablar con claridad y argumentar con responsabilidad.</p>
+  </div>
+
+  <div class="card">
+    <h2>Propósito del blog</h2>
+    <p>Este espacio reúne, en un solo lugar, las evidencias de aprendizaje que desarrollé durante el curso <b>Habilidades Comunicativas</b> de la Fundación Universitaria Católica del Norte. Cada sección muestra un producto, explica el contexto en el que lo elaboré y la habilidad que me permitió fortalecer. Al final encontrarás un texto argumentativo sobre la importancia de comunicarnos bien en la academia y en el trabajo, el video tutorial que explica cómo recorrer el blog y una reflexión sobre toda la experiencia.</p>
+    <div class="info"><b>¿Cómo navegar?</b> Usa el menú lateral (en el celular, el botón <b>☰ Menú</b>) o las tarjetas de abajo. Al final de cada página encontrarás botones para pasar a la evidencia anterior o a la siguiente.</div>
+  </div>
+
+  <h2 style="margin:34px 0 16px">Explora las evidencias</h2>
+  <div class="grid">
+    <a class="tile" href="#evidencia-a"><div class="l">A</div><h3>Informe de literacidad crítica</h3><p>Análisis de tres cuentos latinoamericanos y las relaciones de poder que revelan.</p></a>
+    <a class="tile" href="#evidencia-b"><div class="l">B</div><h3>Guion del pódcast</h3><p>Guion técnico y literario del episodio <i>Esencia Ética</i>.</p></a>
+    <a class="tile" href="#evidencia-c"><div class="l">C</div><h3>Pódcast producido</h3><p>La sombra del plagio en América Latina: el caso Bryce Echenique.</p></a>
+    <a class="tile" href="#evidencia-d"><div class="l">D</div><h3>Póster científico</h3><p>Síntesis visual de un proceso de indagación académica.</p></a>
+    <a class="tile" href="#complementarias" style="border-top-color:var(--gold)"><div class="l">+</div><h3>Evidencias complementarias</h3><p>Cátedra Monseñor Jairo Jaramillo y juicio de personajes.</p></a>
+    <a class="tile" href="#texto-argumentativo" style="border-top-color:var(--navy)"><div class="l">✎</div><h3>Texto argumentativo</h3><p>La importancia de las habilidades comunicativas en lo académico y lo laboral.</p></a>
+  </div>
+
+  <div class="card" style="margin-top:28px">
+    <h2>Video tutorial del blog</h2>
+    <div class="video-slot"></div>
+    <p style="margin:14px 0 0"><a href="#video-tutorial">Ir a la página del video tutorial →</a></p>
+  </div>
+</section>
+
+<!-- ================= SOBRE MÍ ================= -->
+<section class="page" data-page="sobre-mi">
+  <div class="page-head"><div class="kicker">Presentación</div><h1>Sobre mí</h1></div>
+  <div class="card">
+    <div class="profile">
+      <img src="img/foto-perfil.png" alt="Claudia Milena Sterling Molano">
+      <div>
+        <h2>Claudia Milena Sterling Molano</h2>
+        <p class="role">Estudiante · Facultad de Educación y Ciencias Sociales<br>Fundación Universitaria Católica del Norte</p>
+      </div>
+    </div>
+  </div>
+  <div class="card">
+    <p>¡Hola! Soy Milena y este blog reúne el camino que recorrí en el curso de <b>Habilidades Comunicativas</b>. Aquí encontrarás los productos que construí durante el semestre, organizados como evidencias de cómo fui fortaleciendo mi manera de leer, escribir, argumentar y expresarme en público.</p>
+    <h3>Mi recorrido en el curso</h3>
+    <p>Empecé leyendo con mirada crítica a Rosario Castellanos, Gabriel García Márquez y Mario Benedetti, y descubrí que un cuento breve puede revelar las relaciones de poder de toda una sociedad. Luego, en la Cátedra Monseñor Jairo Jaramillo Monsalve, reflexioné sobre la relación entre la naturaleza y la salud mental. Después llevé mis ideas a la voz con el pódcast <i>Esencia Ética</i>, donde analicé un caso de plagio en América Latina y comprendí que citar correctamente es una forma de respeto por el trabajo de los demás. Finalmente, en el juicio simulado a los personajes de <i>Un día de estos</i>, aprendí a defender y refutar posturas con argumentos sustentados en el texto.</p>
+    <h3>Lo que me llevo</h3>
+    <p>Este curso me enseñó que comunicar no es solo transmitir información: es pensar con claridad, escuchar al otro y hacerse responsable de lo que se dice y se escribe. Son habilidades que me acompañarán en mi formación profesional y en cualquier escenario laboral en el que me desempeñe.</p>
+    <h3>Un camino propio, con buena compañía</h3>
+    <p>La mayoría de las evidencias de este blog las desarrollé de manera individual. El juicio de personajes, en cambio, fue un trabajo en equipo junto con <b>Leidy Johana Builes Betancur</b> y <b>Ana Lucía Arboleda Cano</b>, a quienes agradezco su compromiso. También agradezco a la docente <b>Mary Luz Rojas Jaramillo</b> por su acompañamiento durante el curso.</p>
+    <blockquote>“Comunicar bien es pensar con claridad y respetar la palabra del otro.”</blockquote>
+  </div>
+  <div class="pager"><a href="#inicio"><small>Anterior</small>← Inicio</a><a class="next" href="#evidencia-a"><small>Siguiente</small>A. Informe de literacidad crítica →</a></div>
+</section>
+
+<!-- ================= EVIDENCIA A ================= -->
+<section class="page" data-page="evidencia-a">
+  <div class="page-head"><div class="kicker">Evidencia A · Actividad 1</div><h1>Informe de literacidad crítica</h1></div>
+  <div class="card">
+    <div class="meta"><span class="chip">Comprensión crítica y analítica</span><span class="chip">Lectura literaria</span><span class="chip gold">Trabajo individual</span></div>
+    <p>En esta actividad analizamos tres cuentos fundamentales de la narrativa latinoamericana del siglo XX: <i>Modesta Gómez</i>, de Rosario Castellanos; <i>Un día de estos</i>, de Gabriel García Márquez, y <i>Los pocillos</i>, de Mario Benedetti. A partir de preguntas orientadoras, examinamos cómo cada relato expone relaciones de poder, desigualdades de género, clase y origen étnico, y formas de autoritarismo que siguen vigentes en nuestras sociedades.</p>
+    <div class="info"><b>Habilidad fortalecida:</b> lectura crítica, es decir, ir más allá de lo literal para interpretar intenciones, contextos y estructuras de poder dentro de un texto.</div>
+  </div>
+  <div class="card">
+    <h2>Documento del informe</h2>
+    <iframe class="pdf" src="docs/A_Informe_Literacidad_Critica.pdf#view=FitH" title="Informe de literacidad crítica (PDF)" loading="lazy"></iframe>
+    <div class="btns"><a class="btn" href="docs/A_Informe_Literacidad_Critica.pdf" target="_blank" rel="noopener">Abrir en pantalla completa</a><a class="btn ghost" href="docs/A_Informe_Literacidad_Critica.pdf" download>Descargar PDF</a></div>
+  </div>
+  <div class="card">
+    <h2>Recursos multimedia de la actividad</h2>
+    <div class="media-2">
+      <div><h4>Infografía: las relaciones de poder en los tres cuentos</h4><div class="video"><iframe src="https://www.youtube.com/embed/_3mkdz-ql8k" title="Infografía interactiva" loading="lazy" allowfullscreen></iframe></div></div>
+      <div><h4>Video de sustentación</h4><div class="video"><iframe src="https://www.youtube.com/embed/MvOopq3-r6o" title="Video de sustentación Actividad 1" loading="lazy" allowfullscreen></iframe></div></div>
+    </div>
+  </div>
+  <div class="pager"><a href="#sobre-mi"><small>Anterior</small>← Sobre mí</a><a class="next" href="#evidencia-b"><small>Siguiente</small>B. Guion del pódcast →</a></div>
+</section>
+
+<!-- ================= EVIDENCIA B ================= -->
+<section class="page" data-page="evidencia-b">
+  <div class="page-head"><div class="kicker">Evidencia B · Actividad 3</div><h1>Guion del pódcast <i>Esencia Ética</i></h1></div>
+  <div class="card">
+    <div class="meta"><span class="chip">Guion técnico y literario</span><span class="chip">Ética de la comunicación</span><span class="chip gold">Trabajo individual</span></div>
+    <p>Antes de grabar, construimos el guion del episodio <i>Esencia Ética: La sombra del plagio en América Latina</i>. El documento organiza el pódcast en bloques con tiempos definidos: introducción, contexto del caso, preguntas clave (quién, qué, por qué, consecuencias y principios vulnerados), discusión ética con recomendaciones, sustentación individual y fuentes consultadas.</p>
+    <div class="info"><b>Habilidad fortalecida:</b> planificación de la comunicación oral, es decir, convertir una investigación en un discurso claro, ordenado y sustentado en fuentes citadas con normas APA.</div>
+  </div>
+  <div class="card">
+    <h2>Documento del guion</h2>
+    <iframe class="pdf" src="docs/B_Guion_Podcast_Esencia_Etica.pdf#view=FitH" title="Guion del pódcast (PDF)" loading="lazy"></iframe>
+    <div class="btns"><a class="btn" href="docs/B_Guion_Podcast_Esencia_Etica.pdf" target="_blank" rel="noopener">Abrir en pantalla completa</a><a class="btn ghost" href="docs/B_Guion_Podcast_Esencia_Etica.pdf" download>Descargar PDF</a></div>
+  </div>
+  <div class="pager"><a href="#evidencia-a"><small>Anterior</small>← A. Informe de literacidad crítica</a><a class="next" href="#evidencia-c"><small>Siguiente</small>C. Pódcast Esencia Ética →</a></div>
+</section>
+
+<!-- ================= EVIDENCIA C ================= -->
+<section class="page" data-page="evidencia-c">
+  <div class="page-head"><div class="kicker">Evidencia C · Actividad 3</div><h1>Pódcast <i>Esencia Ética</i></h1></div>
+  <div class="card">
+    <div class="meta"><span class="chip">Duración aprox.: 9 min</span><span class="chip">Expresión oral</span><span class="chip gold">Trabajo individual</span></div>
+    <p>El episodio analiza uno de los casos de plagio más conocidos del mundo hispanohablante: la sanción impuesta en 2009 por el INDECOPI (Perú) al escritor Alfredo Bryce Echenique por reproducir artículos de otros autores sin darles crédito. A partir del caso, el pódcast reflexiona sobre la honestidad intelectual y propone tres caminos para prevenir el plagio: apropiarse de las normas de citación, fomentar una intertextualidad ética y formar en integridad académica antes que castigar.</p>
+    <div class="info"><b>Habilidad fortalecida:</b> expresión oral y argumentación ética, es decir, comunicar una postura con voz propia, ritmo adecuado y respaldo en fuentes verificables.</div>
+  </div>
+  <div class="card">
+    <h2>Escucha el episodio</h2>
+    <div class="video"><iframe src="https://www.youtube.com/embed/g1ooiWIbbeM" title="Pódcast Esencia Ética" loading="lazy" allowfullscreen></iframe></div>
+    <div class="btns"><a class="btn ghost" href="https://youtu.be/g1ooiWIbbeM" target="_blank" rel="noopener">Abrir en YouTube</a></div>
+  </div>
+  <div class="pager"><a href="#evidencia-b"><small>Anterior</small>← B. Guion del pódcast</a><a class="next" href="#evidencia-d"><small>Siguiente</small>D. Póster científico →</a></div>
+</section>
+
+<!-- ================= EVIDENCIA D ================= -->
+<section class="page" data-page="evidencia-d">
+  <div class="page-head"><div class="kicker">Evidencia D</div><h1>Póster científico</h1></div>
+  <div class="card">
+    <div id="poster-box">
+      <a href="img/poster.jpg" target="_blank" rel="noopener" title="Ver póster en tamaño completo">
+        <img id="poster-img" src="img/poster.jpg" alt="Póster científico" style="border-radius:12px;box-shadow:var(--shadow);margin:0 auto">
+      </a>
+      <p style="text-align:center;color:var(--muted);font-size:14px;margin-top:10px">Haz clic en la imagen para verla en tamaño completo.</p>
+      <h3>Resumen del póster</h3>
+      <p id="poster-resumen">Escribe aquí un resumen breve del póster (3 o 4 líneas): tema, objetivo, metodología y principal conclusión.</p>
+    </div>
+    <div class="pending" id="poster-pending" hidden>
+      <b>Póster en preparación</b>
+      Esta evidencia se publicará próximamente en esta sección.
+    </div>
+  </div>
+  <div class="pager"><a href="#evidencia-c"><small>Anterior</small>← C. Pódcast Esencia Ética</a><a class="next" href="#complementarias"><small>Siguiente</small>Evidencias complementarias →</a></div>
+</section>
+
+<!-- ================= COMPLEMENTARIAS ================= -->
+<section class="page" data-page="complementarias">
+  <div class="page-head"><div class="kicker">Más evidencias del curso</div><h1>Evidencias complementarias</h1></div>
+
+  <div class="card">
+    <h2>Cátedra Monseñor Jairo Jaramillo Monsalve</h2>
+    <div class="meta"><span class="chip">Tarea 2</span><span class="chip">Reporte y apreciación personal</span><span class="chip gold">Trabajo individual</span></div>
+    <p>Reporte de asistencia a la cátedra <i>Biofilia y salud mental en entornos naturales</i>. En él sintetizamos cinco ideas clave, entre ellas la naturaleza como necesidad básica, el impacto de la vida urbana en la salud mental y la migración por amenidades, y elaboramos una reflexión personal sobre cómo habitar y cuidar los entornos verdes.</p>
+    <div class="info" style="margin-bottom:20px"><b>Habilidad fortalecida:</b> escucha activa y síntesis, es decir, transformar una conferencia extensa en ideas claras y en una postura propia.</div>
+    <iframe class="pdf" src="docs/Extra_Catedra_Biofilia.pdf#view=FitH" title="Reporte de la Cátedra (PDF)" loading="lazy"></iframe>
+    <div class="btns"><a class="btn" href="docs/Extra_Catedra_Biofilia.pdf" target="_blank" rel="noopener">Abrir en pantalla completa</a><a class="btn ghost" href="docs/Extra_Catedra_Biofilia.pdf" download>Descargar PDF</a></div>
+    <div class="media-2" style="margin-top:24px">
+      <div><h4>Infografía</h4><div class="video"><iframe src="https://www.youtube.com/embed/NHsq3GXXjbw" title="Infografía de la Cátedra" loading="lazy" allowfullscreen></iframe></div></div>
+      <div><h4>Video de reflexión</h4><div class="video vertical"><iframe src="https://www.youtube.com/embed/Z2vZWrtj22E" title="Video de reflexión de la Cátedra" loading="lazy" allowfullscreen></iframe></div></div>
+    </div>
+  </div>
+
+  <div class="card">
+    <h2>Personajes en plenaria: juicio a <i>Un día de estos</i></h2>
+    <div class="meta"><span class="chip">Actividad 4</span><span class="chip">Argumentación oral</span><span class="chip gold">Trabajo en equipo: L. J. Builes Betancur y A. L. Arboleda Cano</span></div>
+    <p>Simulación de un juicio a partir del cuento de Gabriel García Márquez. Con los roles de fiscal, defensa, dentista y alcalde, debatimos sobre el abuso de poder, la ética profesional y la dignidad humana, sustentando cada intervención en evidencias tomadas del texto hasta llegar a un veredicto argumentado.</p>
+    <div class="info" style="margin-bottom:20px"><b>Habilidad fortalecida:</b> argumentación contrapuesta, es decir, defender, refutar y escuchar posturas distintas con asertividad.</div>
+    <iframe class="pdf" src="docs/Extra_Juicio_Un_dia_de_estos.pdf#view=FitH" title="Juicio de personajes (PDF)" loading="lazy"></iframe>
+    <div class="btns"><a class="btn" href="docs/Extra_Juicio_Un_dia_de_estos.pdf" target="_blank" rel="noopener">Abrir en pantalla completa</a><a class="btn ghost" href="docs/Extra_Juicio_Un_dia_de_estos.pdf" download>Descargar PDF</a></div>
+    <h4 style="color:var(--blue);margin:24px 0 10px">Video del juicio</h4>
+    <div class="video"><iframe src="https://www.youtube.com/embed/aMxWg02oR2I" title="Video del juicio de personajes" loading="lazy" allowfullscreen></iframe></div>
+  </div>
+  <div class="pager"><a href="#evidencia-d"><small>Anterior</small>← D. Póster científico</a><a class="next" href="#texto-argumentativo"><small>Siguiente</small>Texto argumentativo →</a></div>
+</section>
+
+<!-- ================= TEXTO ARGUMENTATIVO ================= -->
+<section class="page" data-page="texto-argumentativo">
+  <div class="page-head"><div class="kicker">Producción final · Paso 5</div><h1>Texto argumentativo</h1></div>
+  <div class="card essay">
+    <h2>Comunicar para transformar: las habilidades comunicativas en la academia y en el trabajo</h2>
+
+    <p>En una época en la que la información circula más rápido que nunca, saber comunicarse se ha convertido en una necesidad más que en una ventaja. Leer con criterio, escribir con claridad y expresar ideas de manera respetuosa son capacidades que atraviesan todos los espacios en los que una persona se forma y trabaja. Por eso, sostengo que las habilidades comunicativas no son un complemento del conocimiento, sino la condición que permite que lo aprendido en la universidad se transforme en un desempeño profesional ético y eficaz.</p>
+
+    <p>En el ámbito académico, comunicarse bien empieza por saber leer. La lectura crítica de cuentos como <i>Un día de estos</i>, de Gabriel García Márquez, o <i>Modesta Gómez</i>, de Rosario Castellanos, me mostró que comprender un texto implica ir más allá de lo literal para identificar las relaciones de poder, las intenciones del autor y el contexto social que lo rodea. A su vez, escribir un informe, construir el guion de un pódcast o preparar los alegatos de un juicio simulado exige ordenar las ideas, sustentarlas con evidencias y reconocer las voces de otros autores mediante la citación. Sin estas habilidades, el estudiante puede acumular información, pero difícilmente logra producir conocimiento propio.</p>
+
+    <p>En el plano laboral, la comunicación ha dejado de ser una competencia accesoria. Robles (2012), tras consultar a ejecutivos de empresas sobre las habilidades blandas que más valoran en sus empleados, encontró que la comunicación ocupa uno de los primeros lugares, junto con la integridad y la cortesía. Este hallazgo confirma que el dominio técnico de una disciplina resulta insuficiente si no va acompañado de la capacidad de explicar, negociar y trabajar con otros. Desde mi punto de vista, esto ocurre porque en cualquier organización las decisiones se construyen a través de conversaciones, informes y presentaciones: quien no sabe argumentar sus ideas difícilmente logrará que sean escuchadas, por valiosas que sean.</p>
+
+    <p>Podría pensarse que en profesiones técnicas o en trabajos operativos basta con saber ejecutar las tareas, y que la comunicación es asunto exclusivo de periodistas o docentes. Sin embargo, incluso en esos campos una instrucción mal interpretada, un correo confuso o una explicación imprecisa a un cliente pueden generar pérdidas, conflictos o accidentes. Además, el caso de plagio de Alfredo Bryce Echenique, que analicé en el pódcast <i>Esencia Ética</i>, demuestra que la comunicación también tiene una dimensión ética: reconocer la autoría de las ideas ajenas es una forma de honestidad que se aprende en la academia y se sostiene en la vida profesional.</p>
+
+    <p>En definitiva, las habilidades comunicativas son el puente entre lo que una persona sabe y lo que es capaz de aportar a su comunidad. Desarrollarlas durante la formación universitaria no solo mejora el rendimiento académico, sino que prepara para un mundo laboral en el que pensar con claridad, escuchar al otro y expresarse con responsabilidad marcan la diferencia. Por ello, considero que fortalecerlas es invertir en la propia capacidad de transformar el entorno.</p>
+
+    <div class="refs">
+      <h3>Referencias</h3>
+      <p>Robles, M. M. (2012). Executive perceptions of the top 10 soft skills needed in today’s workplace. <i>Business Communication Quarterly, 75</i>(4), 453–465. <a href="https://doi.org/10.1177/1080569912460400" target="_blank" rel="noopener">https://doi.org/10.1177/1080569912460400</a></p>
+    </div>
+  </div>
+  <div class="pager"><a href="#complementarias"><small>Anterior</small>← Evidencias complementarias</a><a class="next" href="#video-tutorial"><small>Siguiente</small>Video tutorial →</a></div>
+</section>
+
+<!-- ================= VIDEO TUTORIAL ================= -->
+<section class="page" data-page="video-tutorial">
+  <div class="page-head"><div class="kicker">Evidencia E · Punto de sustentación</div><h1>Video tutorial del blog</h1></div>
+  <div class="card">
+    <p>En este video explico cómo navegar por el blog, dónde encontrar cada evidencia y cuál fue mi experiencia de aprendizaje en el curso de Habilidades Comunicativas. Duración: menos de 5 minutos.</p>
+    <div class="video-slot"></div>
+  </div>
+  <div class="pager"><a href="#texto-argumentativo"><small>Anterior</small>← Texto argumentativo</a><a class="next" href="#reflexion"><small>Siguiente</small>Reflexión de la experiencia →</a></div>
+</section>
+
+<!-- ================= REFLEXIÓN ================= -->
+<section class="page" data-page="reflexion">
+  <div class="page-head"><div class="kicker">Paso 6 · Evaluación de la experiencia</div><h1>Reflexión de la experiencia</h1></div>
+  <div class="card">
+    <h3>¿Cómo fue el proceso?</h3>
+    <p>Construir este blog me obligó a mirar el curso completo de una sola vez. Al reunir las evidencias noté una progresión clara: empecé interpretando textos ajenos, luego aprendí a sintetizar lo que escuchaba, después a llevar mis ideas a la voz en un pódcast y, por último, a defenderlas frente a posturas contrarias en un juicio simulado. El blog me permitió ver ese crecimiento como un camino y no como tareas sueltas.</p>
+    <h3>Lo que funcionó</h3>
+    <p>Organizar cada evidencia con el mismo esquema (contexto, habilidad fortalecida y recurso) hizo que la información fuera más fácil de recorrer. También fue valioso aprender a integrar distintos lenguajes en un mismo espacio: documentos, infografías, audio y video.</p>
+    <h3>Lo que puede mejorar</h3>
+    <p>Elaborar el blog de manera individual fue un reto, porque todas las decisiones de diseño, redacción y grabación dependieron de mí. Además, al empezar en una plataforma de blogs encontré limitaciones para organizar el menú y la presentación visual, por lo que decidí construir el sitio con una página web propia publicada en GitHub. Para una próxima experiencia, planearía la estructura del sitio desde el inicio del curso y guardaría cada producto con un nombre claro en una sola carpeta.</p>
+    <h3>Sugerencias para futuras experiencias</h3>
+    <p>Recomendaría publicar los productos en el blog a medida que se van entregando y no al final del curso; alojar los audios en una plataforma especializada; probar el sitio en el celular y en otros navegadores, y pedir a compañeros que lo revisen antes de publicarlo, porque una mirada externa encuentra detalles que uno mismo pasa por alto.</p>
+  </div>
+  <div class="pager"><a href="#video-tutorial"><small>Anterior</small>← Video tutorial</a><a class="next" href="#inicio"><small>Volver</small>Inicio →</a></div>
+</section>
+
+</div>
+<footer>
+  Blog académico elaborado por <b>Claudia Milena Sterling Molano</b> · Curso Habilidades Comunicativas · Facultad de Educación y Ciencias Sociales · Docente: Mary Luz Rojas Jaramillo<br>
+  Fundación Universitaria Católica del Norte · 2026 · Proyecto estudiantil
+</footer>
+</main>
+
+<script>
+  /* ====== CONFIGURACIÓN ======
+     Cuando subas tu video tutorial a YouTube, pega aquí SOLO el código del video.
+     Ejemplo: si el enlace es https://youtu.be/AbC123xyz, escribe "AbC123xyz". */
+  const VIDEO_TUTORIAL_ID = "";
+
+  // --- Video tutorial (Inicio y página del video) ---
+  document.querySelectorAll('.video-slot').forEach(slot => {
+    slot.innerHTML = VIDEO_TUTORIAL_ID
+      ? '<div class="video"><iframe src="https://www.youtube.com/embed/' + VIDEO_TUTORIAL_ID + '" title="Video tutorial del blog" loading="lazy" allowfullscreen></iframe></div>'
+      : '<div class="pending"><b>Video tutorial en preparación</b>El video se publicará aquí muy pronto.</div>';
+  });
+
+  // --- Póster: si aún no existe img/poster.jpg, muestra el aviso ---
+  const posterImg = document.getElementById('poster-img');
+  function posterMissing(){ document.getElementById('poster-box').hidden = true; document.getElementById('poster-pending').hidden = false; }
+  posterImg.addEventListener('error', posterMissing);
+  if (posterImg.complete && posterImg.naturalWidth === 0) posterMissing();
+
+  // --- Navegación por secciones ---
+  document.documentElement.classList.add('js');
+  const pages = [...document.querySelectorAll('section.page')];
+  const links = [...document.querySelectorAll('nav a')];
+  function route(){
+    const id = (location.hash || '#inicio').slice(1);
+    const target = pages.find(p => p.dataset.page === id) || pages[0];
+    pages.forEach(p => p.classList.toggle('show', p === target));
+    links.forEach(a => a.classList.toggle('active', a.getAttribute('href') === '#' + target.dataset.page));
+    document.body.classList.remove('open');
+    window.scrollTo({top:0});
+    document.title = target.dataset.page === 'inicio' ? 'Mi ruta comunicativa | Evidencias de aprendizaje' : target.querySelector('h1').textContent + ' | Mi ruta comunicativa';
+  }
+  window.addEventListener('hashchange', route);
+  route();
+</script>
+</body>
+</html>
