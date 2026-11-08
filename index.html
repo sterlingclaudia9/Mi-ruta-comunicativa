@@ -170,7 +170,6 @@
     <a href="#evidencia-a"><span class="tag">A</span>Informe de literacidad crítica</a>
     <a href="#evidencia-b"><span class="tag">B</span>Guion del pódcast</a>
     <a href="#evidencia-c"><span class="tag">C</span>Pódcast Esencia Ética</a>
-    <a href="#evidencia-d"><span class="tag">D</span>Póster científico</a>
     <a href="#complementarias"><span class="tag">+</span>Evidencias complementarias</a>
     <div class="nav-group">Producción final</div>
     <a href="#texto-argumentativo"><span class="tag">✎</span>Texto argumentativo</a>
@@ -207,7 +206,6 @@
     <a class="tile" href="#evidencia-a"><div class="l">A</div><h3>Informe de literacidad crítica</h3><p>Análisis de tres cuentos latinoamericanos y las relaciones de poder que revelan.</p></a>
     <a class="tile" href="#evidencia-b"><div class="l">B</div><h3>Guion del pódcast</h3><p>Guion técnico y literario del episodio <i>Esencia Ética</i>.</p></a>
     <a class="tile" href="#evidencia-c"><div class="l">C</div><h3>Pódcast producido</h3><p>La sombra del plagio en América Latina: el caso Bryce Echenique.</p></a>
-    <a class="tile" href="#evidencia-d"><div class="l">D</div><h3>Póster científico</h3><p>Síntesis visual de un proceso de indagación académica.</p></a>
     <a class="tile" href="#complementarias" style="border-top-color:var(--gold)"><div class="l">+</div><h3>Evidencias complementarias</h3><p>Cátedra Monseñor Jairo Jaramillo y juicio de personajes.</p></a>
     <a class="tile" href="#texto-argumentativo" style="border-top-color:var(--navy)"><div class="l">✎</div><h3>Texto argumentativo</h3><p>La importancia de las habilidades comunicativas en lo académico y lo laboral.</p></a>
   </div>
@@ -296,28 +294,9 @@
     <div class="video"><iframe src="https://www.youtube.com/embed/g1ooiWIbbeM" title="Pódcast Esencia Ética" loading="lazy" allowfullscreen></iframe></div>
     <div class="btns"><a class="btn ghost" href="https://youtu.be/g1ooiWIbbeM" target="_blank" rel="noopener">Abrir en YouTube</a></div>
   </div>
-  <div class="pager"><a href="#evidencia-b"><small>Anterior</small>← B. Guion del pódcast</a><a class="next" href="#evidencia-d"><small>Siguiente</small>D. Póster científico →</a></div>
+  <div class="pager"><a href="#evidencia-b"><small>Anterior</small>← B. Guion del pódcast</a><a class="next" href="#complementarias"><small>Siguiente</small>Evidencias complementarias →</a></div>
 </section>
 
-<!-- ================= EVIDENCIA D ================= -->
-<section class="page" data-page="evidencia-d">
-  <div class="page-head"><div class="kicker">Evidencia D</div><h1>Póster científico</h1></div>
-  <div class="card">
-    <div id="poster-box">
-      <a href="img/poster.jpg" target="_blank" rel="noopener" title="Ver póster en tamaño completo">
-        <img id="poster-img" src="img/poster.jpg" alt="Póster científico" style="border-radius:12px;box-shadow:var(--shadow);margin:0 auto">
-      </a>
-      <p style="text-align:center;color:var(--muted);font-size:14px;margin-top:10px">Haz clic en la imagen para verla en tamaño completo.</p>
-      <h3>Resumen del póster</h3>
-      <p id="poster-resumen">Escribe aquí un resumen breve del póster (3 o 4 líneas): tema, objetivo, metodología y principal conclusión.</p>
-    </div>
-    <div class="pending" id="poster-pending" hidden>
-      <b>Póster en preparación</b>
-      Esta evidencia se publicará próximamente en esta sección.
-    </div>
-  </div>
-  <div class="pager"><a href="#evidencia-c"><small>Anterior</small>← C. Pódcast Esencia Ética</a><a class="next" href="#complementarias"><small>Siguiente</small>Evidencias complementarias →</a></div>
-</section>
 
 <!-- ================= COMPLEMENTARIAS ================= -->
 <section class="page" data-page="complementarias">
@@ -346,7 +325,7 @@
     <h4 style="color:var(--blue);margin:24px 0 10px">Video del juicio</h4>
     <div class="video"><iframe src="https://www.youtube.com/embed/aMxWg02oR2I" title="Video del juicio de personajes" loading="lazy" allowfullscreen></iframe></div>
   </div>
-  <div class="pager"><a href="#evidencia-d"><small>Anterior</small>← D. Póster científico</a><a class="next" href="#texto-argumentativo"><small>Siguiente</small>Texto argumentativo →</a></div>
+  <div class="pager"><a href="#evidencia-c"><small>Anterior</small>← C. Pódcast Esencia Ética</a><a class="next" href="#texto-argumentativo"><small>Siguiente</small>Texto argumentativo →</a></div>
 </section>
 
 <!-- ================= TEXTO ARGUMENTATIVO ================= -->
@@ -410,7 +389,7 @@
   /* ====== CONFIGURACIÓN ======
      Cuando subas tu video tutorial a YouTube, pega aquí SOLO el código del video.
      Ejemplo: si el enlace es https://youtu.be/AbC123xyz, escribe "AbC123xyz". */
-  const VIDEO_TUTORIAL_ID = "";
+  const VIDEO_TUTORIAL_ID = "Go0fBO_MbKk";
 
   // --- Video tutorial (Inicio y página del video) ---
   document.querySelectorAll('.video-slot').forEach(slot => {
@@ -419,11 +398,6 @@
       : '<div class="pending"><b>Video tutorial en preparación</b>El video se publicará aquí muy pronto.</div>';
   });
 
-  // --- Póster: si aún no existe img/poster.jpg, muestra el aviso ---
-  const posterImg = document.getElementById('poster-img');
-  function posterMissing(){ document.getElementById('poster-box').hidden = true; document.getElementById('poster-pending').hidden = false; }
-  posterImg.addEventListener('error', posterMissing);
-  if (posterImg.complete && posterImg.naturalWidth === 0) posterMissing();
 
   // --- Navegación por secciones ---
   document.documentElement.classList.add('js');
